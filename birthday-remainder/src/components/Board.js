@@ -39,6 +39,8 @@ const Board = () => {
 
         <div className='board'>
             <List info={today(Info)} />
+            <h2 className='upcomming text-dark'>Upcoming</h2>
+            <List info={upcoming(Info,2)} />
         </div>
     </main>
   )
@@ -56,5 +58,22 @@ const today = (person) => {
         let month = new Date(data.birthday).getMonth()
         return currentDay == day && currentMonth == month;
     })
+    return filter
+}
+
+
+const upcoming = (person, toMonth) => {
+    let currentDay = new Date().getDate();
+    let currentMonth = new Date().getMonth();
+
+    let filter = person.filter( data => {
+        let day = new Date(data.birthday).getDate() 
+        let month = new Date(data.birthday).getMonth();
+
+        if(currentDay == day) return;
+
+        return month >= currentMonth && month <= currentMonth + toMonth
+    })
+
     return filter
 }
