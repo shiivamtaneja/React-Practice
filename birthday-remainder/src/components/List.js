@@ -1,9 +1,9 @@
 import React from 'react'
 
-const List = (props) => {
+const List = ({info}) => {
   return (
     <ul>
-        {iterate(props.info)}
+        {iterate(info)}
     </ul>
   )
 }
@@ -16,7 +16,7 @@ const iterate = (data) => {
     return (
         <>
             {
-                data.map( (person, index) => {
+                data.map((person, index) => {
                     return (
                         <li key={index}>
                             <div className='flex'>
