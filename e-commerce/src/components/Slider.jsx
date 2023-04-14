@@ -100,20 +100,18 @@ const Slider = () => {
                 <ArrowLeftOutlined />
             </Arrow>
             <Wrapper slideIndex={slideIndex}>
-				{sliderItems.map( (item) =>{
-					return (
-						<Slide bg={item.bg}>
-							<ImgContainer>
-								<Image src={item.img}/>
-							</ImgContainer>
-							<InfoContainer>
-								<Title>{item.title}</Title>
-								<Description>{item.desc}</Description>
-								<Button>SHOP NOW</Button>
-							</InfoContainer>
-						</Slide>
-					)
-				})}
+				{sliderItems.map( (item) => (
+                    <Slide key={item.id} bg={item.bg}>
+                        <ImgContainer>
+                            <Image src={item.img}/>
+                        </ImgContainer>
+                        <InfoContainer>
+                            <Title>{item.title}</Title>
+                            <Description>{item.desc}</Description>
+                            <Button>SHOP NOW</Button>
+                        </InfoContainer>
+                    </Slide>
+                ))}
             </Wrapper>
             <Arrow direction="right" onClick={()=>handleClick("right")}>
                 <ArrowRightOutlined />
